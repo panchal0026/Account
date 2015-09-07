@@ -12,6 +12,8 @@ namespace Account
     {
         public const string ACCESS_CONNECTIONSTRING_TEMPLATE = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};";
 
+        public const string con = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\\Account\\Account\\Account\\Account\\AccountDB.accdb";
+
         private static Hashtable parmCache = Hashtable.Synchronized(new Hashtable());
 
         public static int ExecuteNonQuery(string connString, CommandType cmdType, string cmdText, params OleDbParameter[] cmdParms)

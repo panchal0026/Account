@@ -46,18 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryManager.cs" />
+    <Compile Include="ClientManager.cs" />
+    <Compile Include="datalayer.cs" />
     <Compile Include="Expense Category.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Expense Category.Designer.cs">
       <DependentUpon>Expense Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExpenseDetailManager.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="IncomeDetailManager.cs" />
+    <Compile Include="LocationManager.cs" />
     <Compile Include="Locations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyAccount.cs" />
     <Compile Include="OleDbHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
