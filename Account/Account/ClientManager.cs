@@ -31,16 +31,16 @@ namespace Account
             this.ClientAddress = ClientAddress;
         }
 
-        public void AddNewClient(ClientManager newClient) 
+        public bool AddNewClient(ClientManager newClient) 
         {
-            SqlParameter[] sp = new SqlParameter[5];
+            SqlParameter[] sp = new SqlParameter[6];
             sp[0] = new SqlParameter("@ClientName", newClient.ClientName);
             sp[1] = new SqlParameter("@LocationID", newClient.LocationID);
             sp[2] = new SqlParameter("@ClientEmail", newClient.ClientEmail);
             sp[3] = new SqlParameter("@ClientPhoneNo", newClient.ClientPhoneNo);
             sp[4] = new SqlParameter("@ClientAddress", newClient.ClientAddress);
-
-            datalayer.Execute_NonQuery("sp_AddClient", CommandType.StoredProcedure, sp);
+            sp[5] = new SqlParameter("@IsDeleted", false);
+            return datalayer.Execute_NonQuery("sp_AddClient", CommandType.StoredProcedure, sp);
         }
 
         public void updateClient(ClientManager client) 

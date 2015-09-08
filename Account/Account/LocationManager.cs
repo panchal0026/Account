@@ -25,12 +25,14 @@ namespace Account
             this.LocationAddress = LocationAddress;
         }
 
-        public void AddLocation(LocationManager newLocation) 
+        public bool AddLocation(LocationManager newLocation) 
         {
-            SqlParameter[] sp = new SqlParameter[2];
+            SqlParameter[] sp = new SqlParameter[4];
             sp[0] = new SqlParameter("@LocationName",newLocation.LocationName);
             sp[1] = new SqlParameter("@LocationAddress",newLocation.LocationAddress);
-            datalayer.Execute_NonQuery("sp_AddNewLocation", CommandType.StoredProcedure, sp);
+            sp[2] = new SqlParameter("@CreatedDate", DateTime.Now);
+            sp[3] = new SqlParameter("@IsDeleted", false);
+            return datalayer.Execute_NonQuery("sp_AddNewLocation", CommandType.StoredProcedure, sp);
         }
 
         public void UpdateLocation(LocationManager location) 

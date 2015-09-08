@@ -89,7 +89,7 @@
             // addLocationToolStripMenuItem
             // 
             this.addLocationToolStripMenuItem.Name = "addLocationToolStripMenuItem";
-            this.addLocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addLocationToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.addLocationToolStripMenuItem.Text = "Add &Location";
             this.addLocationToolStripMenuItem.Click += new System.EventHandler(this.addLocationToolStripMenuItem_Click);
             // 
@@ -128,6 +128,7 @@
             this.addClientsToolStripMenuItem.Name = "addClientsToolStripMenuItem";
             this.addClientsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addClientsToolStripMenuItem.Text = "Add &Clients";
+            this.addClientsToolStripMenuItem.Click += new System.EventHandler(this.addClientsToolStripMenuItem_Click);
             // 
             // accountToolStripMenuItem
             // 
@@ -142,19 +143,19 @@
             // myAccountToolStripMenuItem
             // 
             this.myAccountToolStripMenuItem.Name = "myAccountToolStripMenuItem";
-            this.myAccountToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.myAccountToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.myAccountToolStripMenuItem.Text = "My &Account";
             // 
             // addExpenseToolStripMenuItem
             // 
             this.addExpenseToolStripMenuItem.Name = "addExpenseToolStripMenuItem";
-            this.addExpenseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addExpenseToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.addExpenseToolStripMenuItem.Text = "Add &Expense";
             // 
             // addIncomeToolStripMenuItem
             // 
             this.addIncomeToolStripMenuItem.Name = "addIncomeToolStripMenuItem";
-            this.addIncomeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addIncomeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.addIncomeToolStripMenuItem.Text = "Add &Income";
             // 
             // reportsToolStripMenuItem
@@ -176,7 +177,7 @@
             this.contactUsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tejasToolStripMenuItem});
             this.contactUsToolStripMenuItem.Name = "contactUsToolStripMenuItem";
-            this.contactUsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.contactUsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.contactUsToolStripMenuItem.Text = "Contact Us";
             // 
             // tejasToolStripMenuItem
@@ -184,13 +185,13 @@
             this.tejasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem3});
             this.tejasToolStripMenuItem.Name = "tejasToolStripMenuItem";
-            this.tejasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tejasToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.tejasToolStripMenuItem.Text = "Tejas";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(134, 22);
             this.toolStripMenuItem3.Text = "9714197911";
             // 
             // Home

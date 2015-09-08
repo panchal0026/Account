@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="CategoryManager.cs" />
     <Compile Include="ClientManager.cs" />
+    <Compile Include="Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clients.Designer.cs">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </Compile>
     <Compile Include="datalayer.cs" />
     <Compile Include="Expense Category.cs">
       <SubType>Form</SubType>
@@ -80,6 +86,9 @@
     <Compile Include="OleDbHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Clients.resx">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Expense Category.resx">
       <DependentUpon>Expense Category.cs</DependentUpon>
     </EmbeddedResource>

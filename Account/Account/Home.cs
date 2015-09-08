@@ -27,5 +27,11 @@ namespace Account
             Expense_Category ex = new Expense_Category();
             ex.Show();
         }
+
+        private void addClientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clients cl = new Clients();
+            cl.Show();
+        }
     }
 }

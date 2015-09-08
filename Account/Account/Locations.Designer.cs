@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlLocationForm = new System.Windows.Forms.Panel();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.btnAddNewLoaction = new System.Windows.Forms.Button();
             this.txtLocationAddress = new System.Windows.Forms.TextBox();
             this.lblLoactionAddress = new System.Windows.Forms.Label();
@@ -36,9 +37,10 @@
             this.lblLoactionName = new System.Windows.Forms.Label();
             this.pnlLocationGrid = new System.Windows.Forms.Panel();
             this.btnPnlAddLocation = new System.Windows.Forms.Button();
-            this.lblMessage = new System.Windows.Forms.Label();
+            this.LocationGrid = new System.Windows.Forms.DataGridView();
             this.pnlLocationForm.SuspendLayout();
             this.pnlLocationGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LocationGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlLocationForm
@@ -54,6 +56,14 @@
             this.pnlLocationForm.Size = new System.Drawing.Size(768, 410);
             this.pnlLocationForm.TabIndex = 0;
             this.pnlLocationForm.Visible = false;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.Location = new System.Drawing.Point(234, 236);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 13);
+            this.lblMessage.TabIndex = 5;
             // 
             // btnAddNewLoaction
             // 
@@ -99,10 +109,11 @@
             // 
             // pnlLocationGrid
             // 
+            this.pnlLocationGrid.Controls.Add(this.LocationGrid);
             this.pnlLocationGrid.Controls.Add(this.btnPnlAddLocation);
-            this.pnlLocationGrid.Location = new System.Drawing.Point(36, 12);
+            this.pnlLocationGrid.Location = new System.Drawing.Point(30, 12);
             this.pnlLocationGrid.Name = "pnlLocationGrid";
-            this.pnlLocationGrid.Size = new System.Drawing.Size(1089, 447);
+            this.pnlLocationGrid.Size = new System.Drawing.Size(1095, 447);
             this.pnlLocationGrid.TabIndex = 1;
             // 
             // btnPnlAddLocation
@@ -115,13 +126,14 @@
             this.btnPnlAddLocation.UseVisualStyleBackColor = true;
             this.btnPnlAddLocation.Click += new System.EventHandler(this.btnPnlAddLocation_Click);
             // 
-            // lblMessage
+            // LocationGrid
             // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.Location = new System.Drawing.Point(234, 236);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(0, 13);
-            this.lblMessage.TabIndex = 5;
+            this.LocationGrid.BackgroundColor = System.Drawing.Color.Cornsilk;
+            this.LocationGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LocationGrid.Location = new System.Drawing.Point(64, 73);
+            this.LocationGrid.Name = "LocationGrid";
+            this.LocationGrid.Size = new System.Drawing.Size(981, 347);
+            this.LocationGrid.TabIndex = 1;
             // 
             // Locations
             // 
@@ -135,6 +147,7 @@
             this.pnlLocationForm.ResumeLayout(false);
             this.pnlLocationForm.PerformLayout();
             this.pnlLocationGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LocationGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -150,5 +163,6 @@
         private System.Windows.Forms.Panel pnlLocationGrid;
         private System.Windows.Forms.Button btnPnlAddLocation;
         private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.DataGridView LocationGrid;
     }
 }

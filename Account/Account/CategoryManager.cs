@@ -29,15 +29,15 @@ namespace Account
             this.CategoryType = CategoryType;
         }
 
-        public void AddNewCategory(CategoryManager newCategory) 
+        public bool AddNewCategory(CategoryManager newCategory) 
         {
-            SqlParameter[] sp = new SqlParameter[4];
+            SqlParameter[] sp = new SqlParameter[5];
             sp[0] = new SqlParameter("@CategoryName", newCategory.CategoryName);
             sp[1] = new SqlParameter("@CategoryDescription", newCategory.CategoryDescription);
             sp[2] = new SqlParameter("@CategoryTypeID", newCategory.CategoryTypeID);
             sp[3] = new SqlParameter("@CategoryType", newCategory.CategoryType);
-
-            datalayer.Execute_NonQuery("sp_AddCaegory", CommandType.StoredProcedure, sp);
+            sp[4] = new SqlParameter("@IsDeleted", false);
+            return datalayer.Execute_NonQuery("sp_AddCaegory", CommandType.StoredProcedure, sp);
         }
 
         public void UpdateCategory(CategoryManager category) 
@@ -46,7 +46,6 @@ namespace Account
             sp[0] = new SqlParameter("@CategoryID", category.CategoryID);
             sp[1] = new SqlParameter("@CategoryName", category.CategoryName);
             sp[2] = new SqlParameter("@CategoryDescription", category.CategoryDescription);
-
             datalayer.Execute_NonQuery("sp_UpdateCategory", CommandType.StoredProcedure, sp);
         }
 
@@ -63,6 +62,11 @@ namespace Account
             SqlParameter[] sp = new SqlParameter[1];
             sp[0] = new SqlParameter("@CategoryTypeID", CategoryTypeID);
             return datalayer.get_data("sp_ListCategoryByCategoryType", CommandType.StoredProcedure, sp);
+        }
+
+        public DataSet listAllCategory()
+        {
+            return datalayer.get_data("sp_ListCategory", CommandType.StoredProcedure, null);
         }
 
         public DataSet getCategoryByID(int CategoryID) 

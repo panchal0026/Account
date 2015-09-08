@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 /// </summary>
 public class datalayer
 {
-    public static String ConnStr = "Data Source=ISHANI-PC;Initial Catalog=medicalsurvey;User ID=sa;Password=i1010";
+    public static String ConnStr = "Data Source=TEJAS-PC\\SQLEXPRESS;Initial Catalog=Account;User ID=sa;Password=tejas0026";
      public static DataSet get_data(String query, CommandType commndtype, SqlParameter[] param)
     {
         SqlConnection conn = new SqlConnection(ConnStr);
