@@ -126,7 +126,7 @@
             // addClientsToolStripMenuItem
             // 
             this.addClientsToolStripMenuItem.Name = "addClientsToolStripMenuItem";
-            this.addClientsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addClientsToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.addClientsToolStripMenuItem.Text = "Add &Clients";
             this.addClientsToolStripMenuItem.Click += new System.EventHandler(this.addClientsToolStripMenuItem_Click);
             // 
@@ -143,19 +143,20 @@
             // myAccountToolStripMenuItem
             // 
             this.myAccountToolStripMenuItem.Name = "myAccountToolStripMenuItem";
-            this.myAccountToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.myAccountToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.myAccountToolStripMenuItem.Text = "My &Account";
+            this.myAccountToolStripMenuItem.Click += new System.EventHandler(this.myAccountToolStripMenuItem_Click);
             // 
             // addExpenseToolStripMenuItem
             // 
             this.addExpenseToolStripMenuItem.Name = "addExpenseToolStripMenuItem";
-            this.addExpenseToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.addExpenseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addExpenseToolStripMenuItem.Text = "Add &Expense";
             // 
             // addIncomeToolStripMenuItem
             // 
             this.addIncomeToolStripMenuItem.Name = "addIncomeToolStripMenuItem";
-            this.addIncomeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.addIncomeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addIncomeToolStripMenuItem.Text = "Add &Income";
             // 
             // reportsToolStripMenuItem

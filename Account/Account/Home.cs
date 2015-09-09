@@ -33,5 +33,11 @@ namespace Account
             Clients cl = new Clients();
             cl.Show();
         }
+
+        private void myAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainAccount ma = new MainAccount();
+            ma.Show();
+        }
     }
 }
