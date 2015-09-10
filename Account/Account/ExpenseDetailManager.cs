@@ -11,9 +11,11 @@ namespace Account
     class ExpenseDetailManager
     {
         public int TransactionID { get; set; }
+        public int LocationID { get; set; }
         public int ClientID { get; set; }
         public int CategoryID { get; set; }
         public string PayTo { get; set; }
+        
         public long Amount { get; set; }
         public string Note { get; set; }
 
@@ -22,8 +24,9 @@ namespace Account
             
         }
 
-        public ExpenseDetailManager(int ClientID, int CategoryID, string payto, long Amount, string note) 
+        public ExpenseDetailManager(int LocationID,int ClientID, int CategoryID, string payto, long Amount, string note) 
         {
+            this.LocationID = LocationID;
             this.ClientID = ClientID;
             this.CategoryID = CategoryID;
             this.PayTo = payto;
@@ -31,17 +34,18 @@ namespace Account
             this.Note = note;
         }
 
-        public void AddExpense(ExpenseDetailManager newExpense) 
+        public bool AddExpense(ExpenseDetailManager newExpense) 
         {
-            SqlParameter[] sp = new SqlParameter[6];
-            sp[0] = new SqlParameter("@ClientID", newExpense.ClientID);
-            sp[1] = new SqlParameter("@CategoryID", newExpense.CategoryID);
-            sp[2] = new SqlParameter("@payTo", newExpense.PayTo);
-            sp[3] = new SqlParameter("@Date", DateTime.Now);
-            sp[4] = new SqlParameter("@Amount", newExpense.Amount);
-            sp[5] = new SqlParameter("@Note", newExpense.Note);
+            SqlParameter[] sp = new SqlParameter[7];
+            sp[0] = new SqlParameter("@LocationID", newExpense.LocationID);
+            sp[1] = new SqlParameter("@ClientID", newExpense.ClientID);
+            sp[2] = new SqlParameter("@CategoryID", newExpense.CategoryID);
+            sp[3] = new SqlParameter("@payTo", newExpense.PayTo);
+            sp[4] = new SqlParameter("@Date", DateTime.Now);
+            sp[5] = new SqlParameter("@Amount", newExpense.Amount);
+            sp[6] = new SqlParameter("@Note", newExpense.Note);
 
-            datalayer.Execute_NonQuery("sp_AddExpense", CommandType.StoredProcedure, sp);
+            return datalayer.Execute_NonQuery("sp_AddExpense", CommandType.StoredProcedure, sp);
         }
 
         public void UpdateExpense(ExpenseDetailManager expense)

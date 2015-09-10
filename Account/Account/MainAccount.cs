@@ -14,6 +14,17 @@ namespace Account
         public MainAccount()
         {
             InitializeComponent();
+            bindAccountInfo();
+        }
+
+        public void bindAccountInfo() 
+        {
+           DataSet ds = datalayer.get_data("sp_GetAccountInfo", CommandType.StoredProcedure, null);
+           if (ds.Tables[0].Rows.Count > 0) 
+           {
+               lblAmount.Text = ds.Tables[0].Rows[0]["Balance"].ToString()+ " Rs/-";
+               lblUpdatedDate.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["UpdatedDate"].ToString()).ToShortDateString();
+           }
         }
     }
 }

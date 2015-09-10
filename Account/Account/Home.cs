@@ -39,5 +39,11 @@ namespace Account
             MainAccount ma = new MainAccount();
             ma.Show();
         }
+
+        private void addExpenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddExpense expense = new AddExpense();
+            expense.Show();
+        }
     }
 }

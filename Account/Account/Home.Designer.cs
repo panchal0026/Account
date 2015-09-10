@@ -152,6 +152,7 @@
             this.addExpenseToolStripMenuItem.Name = "addExpenseToolStripMenuItem";
             this.addExpenseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addExpenseToolStripMenuItem.Text = "Add &Expense";
+            this.addExpenseToolStripMenuItem.Click += new System.EventHandler(this.addExpenseToolStripMenuItem_Click);
             // 
             // addIncomeToolStripMenuItem
             // 
