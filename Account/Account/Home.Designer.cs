@@ -159,6 +159,7 @@
             this.addIncomeToolStripMenuItem.Name = "addIncomeToolStripMenuItem";
             this.addIncomeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addIncomeToolStripMenuItem.Text = "Add &Income";
+            this.addIncomeToolStripMenuItem.Click += new System.EventHandler(this.addIncomeToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 

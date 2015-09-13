@@ -14,6 +14,7 @@ namespace Account
         public AddExpense()
         {
             InitializeComponent();
+            bindExpenseGrid();
             bindData();
         }
 
@@ -102,6 +103,71 @@ namespace Account
         private void drpLocationList_SelectedIndexChanged(object sender, EventArgs e)
         {
             bindClientList(Convert.ToInt32(drpLocationList.SelectedValue));
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void bindExpenseGrid()
+        {
+            ExpenseDetailManager cl = new ExpenseDetailManager();
+            DataSet ds = cl.ListExpenseDetails();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                ExpenseGrid.AutoGenerateColumns = false;
+                ExpenseGrid.DataSource = null;
+                //Set Columns Count 
+                ExpenseGrid.ColumnCount = 8;
+
+                //Add Columns
+                ExpenseGrid.Columns[0].Name = "Id";
+                ExpenseGrid.Columns[0].HeaderText = "Id";
+                ExpenseGrid.Columns[0].DataPropertyName = "TransactionID";
+
+                ExpenseGrid.Columns[1].HeaderText = "Location Name";
+                ExpenseGrid.Columns[1].Name = "LocationName";
+                ExpenseGrid.Columns[1].DataPropertyName = "LocationID";
+
+                ExpenseGrid.Columns[2].Name = "Address";
+                ExpenseGrid.Columns[2].HeaderText = "Location Address";
+                ExpenseGrid.Columns[2].DataPropertyName = "ClientID";
+
+                ExpenseGrid.Columns[3].Name = "Address";
+                ExpenseGrid.Columns[3].HeaderText = "Location Address";
+                ExpenseGrid.Columns[3].DataPropertyName = "CategoryID";
+
+                ExpenseGrid.Columns[4].Name = "Address";
+                ExpenseGrid.Columns[4].HeaderText = "Location Address";
+                ExpenseGrid.Columns[4].DataPropertyName = "PayTo";
+
+                ExpenseGrid.Columns[5].Name = "Address";
+                ExpenseGrid.Columns[5].HeaderText = "Location Address";
+                ExpenseGrid.Columns[5].DataPropertyName = "Date";
+
+                ExpenseGrid.Columns[6].Name = "Address";
+                ExpenseGrid.Columns[6].HeaderText = "Location Address";
+                ExpenseGrid.Columns[6].DataPropertyName = "Amount";
+
+                ExpenseGrid.Columns[7].Name = "Address";
+                ExpenseGrid.Columns[7].HeaderText = "Location Address";
+                ExpenseGrid.Columns[7].DataPropertyName = "Note";
+
+
+
+                ExpenseGrid.DataSource = ds.Tables[0];
+
+                DataGridViewButtonColumn db = new DataGridViewButtonColumn();
+                db.Text = "Delete";
+                ExpenseGrid.Columns.Insert(8, (DataGridViewColumn)db);
+            }
+        }
+
+        private void btnPnlAddExpense_Click(object sender, EventArgs e)
+        {
+            pnlExpenseGrid.Visible = false;
+            pnlExpenseForm.Visible = true;
         }
     }
 }

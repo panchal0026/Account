@@ -13,6 +13,7 @@ namespace Account
         public int TransactionID { get; set; }
         public string Name { get; set; }
         public int LocationID { get; set; }
+        public DateTime Date { get; set; }
         public long Amount { get; set; }
         public string Note { get; set; }
 
@@ -29,15 +30,15 @@ namespace Account
             this.Note = Note;
         }
 
-        public void AddIncome(IncomeDetailManager newIncome) 
+        public bool AddIncome(IncomeDetailManager newIncome) 
         {
             SqlParameter[] sp = new SqlParameter[5];
             sp[0] = new SqlParameter("@Name", newIncome.Name);
             sp[1] = new SqlParameter("@LocationID", newIncome.LocationID);
-            sp[2] = new SqlParameter("@Date", DateTime.Now);
+            sp[2] = new SqlParameter("@Date", newIncome.Date);
             sp[3] = new SqlParameter("@Amount", newIncome.Amount);
             sp[4] = new SqlParameter("@Note", newIncome.Note);
-            datalayer.Execute_NonQuery("sp_AddIncome", CommandType.StoredProcedure, sp);
+            return datalayer.Execute_NonQuery("sp_AddIncome", CommandType.StoredProcedure, sp);
         }
 
         public void UpdateIncome(IncomeDetailManager Income) 
@@ -50,6 +51,12 @@ namespace Account
             sp[3] = new SqlParameter("@Amount", Income.Amount);
             sp[4] = new SqlParameter("@Note", Income.Note);
             datalayer.Execute_NonQuery("sp_UpdateIncome", CommandType.StoredProcedure, sp);
+        }
+
+
+        public DataSet ListIncomeDetails()
+        {
+            return datalayer.get_data("sp_ListIncomeDetail", CommandType.StoredProcedure, null);
         }
 
     }

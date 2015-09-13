@@ -52,6 +52,12 @@
     <Compile Include="AddExpense.Designer.cs">
       <DependentUpon>AddExpense.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddIncome.Designer.cs">
+      <DependentUpon>AddIncome.cs</DependentUpon>
+    </Compile>
     <Compile Include="CategoryManager.cs" />
     <Compile Include="ClientManager.cs" />
     <Compile Include="Clients.cs">
@@ -100,6 +106,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddExpense.resx">
       <DependentUpon>AddExpense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddIncome.resx">
+      <DependentUpon>AddIncome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clients.resx">
       <DependentUpon>Clients.cs</DependentUpon>

@@ -45,5 +45,11 @@ namespace Account
             AddExpense expense = new AddExpense();
             expense.Show();
         }
+
+        private void addIncomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddIncome income = new AddIncome();
+            income.Show();
+        }
     }
 }

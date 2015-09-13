@@ -60,5 +60,11 @@ namespace Account
             sp[6] = new SqlParameter("@Note", expense.Note);
             datalayer.Execute_NonQuery("sp_UpdateExpense", CommandType.StoredProcedure, sp);
         }
+
+        public DataSet ListExpenseDetails()
+        {
+            return datalayer.get_data("sp_ListExpenseDetail", CommandType.StoredProcedure, null);
+        }
+
     }
 }
