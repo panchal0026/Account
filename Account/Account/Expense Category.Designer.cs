@@ -43,6 +43,12 @@
             this.pnlExpenseCategoryGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryGrid)).BeginInit();
             this.SuspendLayout();
+
+            this.lblExpenseID = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+
+
             // 
             // pnlExpenseCategoryForm
             // 
@@ -58,6 +64,12 @@
             this.pnlExpenseCategoryForm.Size = new System.Drawing.Size(536, 315);
             this.pnlExpenseCategoryForm.TabIndex = 0;
             this.pnlExpenseCategoryForm.Visible = false;
+
+            this.pnlExpenseCategoryForm.Controls.Add(this.btnUpdate);
+            this.pnlExpenseCategoryForm.Controls.Add(this.btnCancel);
+
+            this.pnlExpenseCategoryForm.Controls.Add(this.lblExpenseID);
+
             // 
             // btnAddNewExpenseCategory
             // 
@@ -110,6 +122,9 @@
             this.pnlExpenseCategoryGrid.Name = "pnlExpenseCategoryGrid";
             this.pnlExpenseCategoryGrid.Size = new System.Drawing.Size(913, 409);
             this.pnlExpenseCategoryGrid.TabIndex = 1;
+
+
+
             // 
             // btnPnlExpenseCategory
             // 
@@ -150,6 +165,8 @@
             this.CategoryGrid.Name = "CategoryGrid";
             this.CategoryGrid.Size = new System.Drawing.Size(799, 298);
             this.CategoryGrid.TabIndex = 1;
+
+            this.CategoryGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategoryGrid_CellContentClick);
             // 
             // Expense_Category
             // 
@@ -166,6 +183,39 @@
             ((System.ComponentModel.ISupportInitialize)(this.CategoryGrid)).EndInit();
             this.ResumeLayout(false);
 
+
+            //
+            //hdnLocationID
+            //
+
+            this.lblExpenseID.AutoSize = true;
+            this.lblExpenseID.Location = new System.Drawing.Point(236, 238);
+            this.lblExpenseID.Name = "lblExpenseID";
+            this.lblExpenseID.TabIndex = 6;
+            this.lblExpenseID.Visible = false;
+
+            //
+            //btnUpdate
+            //
+            this.btnUpdate.Location = new System.Drawing.Point(383, 200);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(150, 23);
+            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+
+            //
+            //btnCancel
+            //
+            this.btnCancel.Location = new System.Drawing.Point(393, 210);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(150, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+
         }
 
         #endregion
@@ -181,5 +231,9 @@
         private System.Windows.Forms.ComboBox drpCategoryType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView CategoryGrid;
+
+        private System.Windows.Forms.Label lblExpenseID;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

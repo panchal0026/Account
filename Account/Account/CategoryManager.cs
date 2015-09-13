@@ -29,6 +29,15 @@ namespace Account
             this.CategoryType = CategoryType;
         }
 
+        public CategoryManager(int CategoryID, string CategoryName, string CategoryDescription, int CategoryTypeID, string CategoryType)
+        {
+            this.CategoryID = CategoryID;
+            this.CategoryName = CategoryName;
+            this.CategoryDescription = CategoryDescription;
+            this.CategoryTypeID = CategoryTypeID;
+            this.CategoryType = CategoryType;
+        }
+
         public bool AddNewCategory(CategoryManager newCategory) 
         {
             SqlParameter[] sp = new SqlParameter[5];
@@ -49,6 +58,19 @@ namespace Account
             datalayer.Execute_NonQuery("sp_UpdateCategory", CommandType.StoredProcedure, sp);
         }
 
+         public void UpdateCategoryWithType(CategoryManager category) 
+        {
+            SqlParameter[] sp = new SqlParameter[5];
+            sp[0] = new SqlParameter("@CategoryID", category.CategoryID);
+            sp[1] = new SqlParameter("@CategoryName", category.CategoryName);
+            sp[2] = new SqlParameter("@CategoryDescription", category.CategoryDescription);
+            sp[3] = new SqlParameter("@CategoryTypeID", category.CategoryTypeID);
+            sp[4] = new SqlParameter("@CategoryType", category.CategoryType);
+
+            datalayer.Execute_NonQuery("sp_UpdateCategoryWithCategoryType", CommandType.StoredProcedure, sp);
+        }
+
+        
         public void DeleteCategory(int CategoryID) 
         {
             SqlParameter[] sp = new SqlParameter[1];

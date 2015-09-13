@@ -36,12 +36,18 @@
             this.txtLoactionName = new System.Windows.Forms.TextBox();
             this.lblLoactionName = new System.Windows.Forms.Label();
             this.pnlLocationGrid = new System.Windows.Forms.Panel();
-            this.btnPnlAddLocation = new System.Windows.Forms.Button();
             this.LocationGrid = new System.Windows.Forms.DataGridView();
+            
+            this.btnPnlAddLocation = new System.Windows.Forms.Button();
             this.pnlLocationForm.SuspendLayout();
             this.pnlLocationGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LocationGrid)).BeginInit();
             this.SuspendLayout();
+
+            this.lblLocationID = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+
             // 
             // pnlLocationForm
             // 
@@ -51,11 +57,28 @@
             this.pnlLocationForm.Controls.Add(this.lblLoactionAddress);
             this.pnlLocationForm.Controls.Add(this.txtLoactionName);
             this.pnlLocationForm.Controls.Add(this.lblLoactionName);
+            this.pnlLocationForm.Controls.Add(this.btnUpdate);
+            this.pnlLocationForm.Controls.Add(this.btnCancel);
+
+            this.pnlLocationForm.Controls.Add(this.lblLocationID);
+
             this.pnlLocationForm.Location = new System.Drawing.Point(167, 25);
             this.pnlLocationForm.Name = "pnlLocationForm";
             this.pnlLocationForm.Size = new System.Drawing.Size(768, 410);
             this.pnlLocationForm.TabIndex = 0;
             this.pnlLocationForm.Visible = false;
+
+            //
+            //hdnLocationID
+            //
+
+            this.lblLocationID.AutoSize = true;
+            this.lblLocationID.Location = new System.Drawing.Point(236, 238);
+            this.lblLocationID.Name = "lblLocationID";
+            this.lblLocationID.TabIndex = 6;
+            this.lblLocationID.Visible = false;
+
+
             // 
             // lblMessage
             // 
@@ -74,6 +97,29 @@
             this.btnAddNewLoaction.Text = "Add Location";
             this.btnAddNewLoaction.UseVisualStyleBackColor = true;
             this.btnAddNewLoaction.Click += new System.EventHandler(this.btnAddNewLoaction_Click);
+
+            //
+            //btnUpdate
+            //
+            this.btnUpdate.Location = new System.Drawing.Point(383, 200);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(150, 23);
+            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+
+            //
+            //btnCancel
+            //
+            this.btnCancel.Location = new System.Drawing.Point(393, 210);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(150, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+
             // 
             // txtLocationAddress
             // 
@@ -116,6 +162,17 @@
             this.pnlLocationGrid.Size = new System.Drawing.Size(1095, 447);
             this.pnlLocationGrid.TabIndex = 1;
             // 
+            // LocationGrid
+            // 
+            this.LocationGrid.BackgroundColor = System.Drawing.Color.Cornsilk;
+            this.LocationGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LocationGrid.Location = new System.Drawing.Point(64, 73);
+            this.LocationGrid.Name = "LocationGrid";
+            this.LocationGrid.Size = new System.Drawing.Size(981, 347);
+            this.LocationGrid.TabIndex = 1;
+            this.LocationGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LocationGrid_CellContentClick);
+            
+            // 
             // btnPnlAddLocation
             // 
             this.btnPnlAddLocation.Location = new System.Drawing.Point(942, 13);
@@ -125,15 +182,6 @@
             this.btnPnlAddLocation.Text = "Add Locaton";
             this.btnPnlAddLocation.UseVisualStyleBackColor = true;
             this.btnPnlAddLocation.Click += new System.EventHandler(this.btnPnlAddLocation_Click);
-            // 
-            // LocationGrid
-            // 
-            this.LocationGrid.BackgroundColor = System.Drawing.Color.Cornsilk;
-            this.LocationGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.LocationGrid.Location = new System.Drawing.Point(64, 73);
-            this.LocationGrid.Name = "LocationGrid";
-            this.LocationGrid.Size = new System.Drawing.Size(981, 347);
-            this.LocationGrid.TabIndex = 1;
             // 
             // Locations
             // 
@@ -163,6 +211,11 @@
         private System.Windows.Forms.Panel pnlLocationGrid;
         private System.Windows.Forms.Button btnPnlAddLocation;
         private System.Windows.Forms.Label lblMessage;
+        
         private System.Windows.Forms.DataGridView LocationGrid;
+
+        private System.Windows.Forms.Label lblLocationID;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

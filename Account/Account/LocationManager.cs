@@ -25,6 +25,13 @@ namespace Account
             this.LocationAddress = LocationAddress;
         }
 
+        public LocationManager(int LocationID, string LocationName, string LocationAddress)
+        {
+            this.LocationName = LocationName;
+            this.LocationAddress = LocationAddress;
+            this.LocationID = LocationID;
+        }
+
         public bool AddLocation(LocationManager newLocation) 
         {
             SqlParameter[] sp = new SqlParameter[4];

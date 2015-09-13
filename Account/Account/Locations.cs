@@ -18,6 +18,7 @@ namespace Account
         }
 
         #region Click Events
+
         private void btnAddNewLoaction_Click(object sender, EventArgs e)
         {
             string LocationName = txtLoactionName.Text;
@@ -45,11 +46,79 @@ namespace Account
 
         }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int LocationID = Convert.ToInt32(lblLocationID.Text);
+            string LocationName = txtLoactionName.Text;
+            string LocationAddress = txtLocationAddress.Text;
+            LocationManager ls = new LocationManager(LocationID,LocationName, LocationAddress);
+            if (!string.IsNullOrEmpty(LocationName))
+            {
+                try
+                {
+                    ls.UpdateLocation(ls);
+                    MessageBox.Show("Location Updated Succesfully.!");
+                    bindLocation();
+                    pnlLocationGrid.Visible = true;
+                    pnlLocationForm.Visible = false;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Enter Location Name");
+            }
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            pnlLocationForm.Visible = false;
+            pnlLocationGrid.Visible = true;
+        }
+
         private void btnPnlAddLocation_Click(object sender, EventArgs e)
         {
             pnlLocationForm.Visible = true;
             pnlLocationGrid.Visible = false;
+
+            btnAddNewLoaction.Visible = true;
+            btnUpdate.Visible = false;
+            btnCancel.Visible = false;
         }
+
+        private void LocationGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int location_id = 0;
+            
+            if (e.ColumnIndex == 3)
+            {
+                
+                txtLoactionName.Text = LocationGrid.Rows[e.RowIndex].Cells["LocationName"].Value.ToString();
+                txtLocationAddress.Text = LocationGrid.Rows[e.RowIndex].Cells["Address"].Value.ToString();
+                lblLocationID.Text = LocationGrid.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+
+                pnlLocationForm.Visible = true;
+                pnlLocationGrid.Visible = false;
+                btnAddNewLoaction.Visible = false;
+                
+            }
+            if (e.ColumnIndex == 4)
+            {
+                location_id = Convert.ToInt32(LocationGrid.Rows[e.RowIndex].Cells["Id"].Value);
+
+                LocationManager loc_manager = new LocationManager();
+                loc_manager.DeleteLocation(location_id);
+                bindLocation();
+
+                pnlLocationForm.Visible = false;
+                pnlLocationGrid.Visible = true;
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -80,11 +149,32 @@ namespace Account
 
                 LocationGrid.DataSource = ds.Tables[0];
 
-                DataGridViewButtonColumn db = new DataGridViewButtonColumn();
-                db.Text = "Delete";
-                LocationGrid.Columns.Insert(3, (DataGridViewColumn)db);                
+                //Buttons
+
+                DataGridViewLinkColumn Editlink = new DataGridViewLinkColumn();
+                Editlink.UseColumnTextForLinkValue = true;
+                Editlink.HeaderText = "Edit";
+                Editlink.DataPropertyName = "lnkForEditColumn";
+                Editlink.LinkBehavior = LinkBehavior.SystemDefault;
+                Editlink.Text = "Edit";
+                LocationGrid.Columns.Add(Editlink);
+
+                DataGridViewLinkColumn Deletelink = new DataGridViewLinkColumn();
+                Deletelink.UseColumnTextForLinkValue = true;
+                Deletelink.HeaderText = "delete";
+                Deletelink.DataPropertyName = "lnkForDeleteColumn";
+                Deletelink.LinkBehavior = LinkBehavior.SystemDefault;
+                Deletelink.Text = "Delete";
+                LocationGrid.Columns.Add(Deletelink); 
+
+                //DataGridViewButtonColumn db = new DataGridViewButtonColumn();
+                //db.Text = "Delete";
+                //LocationGrid.Columns.Insert(3, (DataGridViewColumn)db);                
             }
         }
+
+        
+        
 
         #endregion
     }
