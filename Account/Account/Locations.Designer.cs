@@ -35,19 +35,16 @@
             this.lblLoactionAddress = new System.Windows.Forms.Label();
             this.txtLoactionName = new System.Windows.Forms.TextBox();
             this.lblLoactionName = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.lblLocationID = new System.Windows.Forms.Label();
             this.pnlLocationGrid = new System.Windows.Forms.Panel();
             this.LocationGrid = new System.Windows.Forms.DataGridView();
-            
             this.btnPnlAddLocation = new System.Windows.Forms.Button();
             this.pnlLocationForm.SuspendLayout();
             this.pnlLocationGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LocationGrid)).BeginInit();
             this.SuspendLayout();
-
-            this.lblLocationID = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-
             // 
             // pnlLocationForm
             // 
@@ -59,26 +56,12 @@
             this.pnlLocationForm.Controls.Add(this.lblLoactionName);
             this.pnlLocationForm.Controls.Add(this.btnUpdate);
             this.pnlLocationForm.Controls.Add(this.btnCancel);
-
             this.pnlLocationForm.Controls.Add(this.lblLocationID);
-
             this.pnlLocationForm.Location = new System.Drawing.Point(167, 25);
             this.pnlLocationForm.Name = "pnlLocationForm";
             this.pnlLocationForm.Size = new System.Drawing.Size(768, 410);
             this.pnlLocationForm.TabIndex = 0;
             this.pnlLocationForm.Visible = false;
-
-            //
-            //hdnLocationID
-            //
-
-            this.lblLocationID.AutoSize = true;
-            this.lblLocationID.Location = new System.Drawing.Point(236, 238);
-            this.lblLocationID.Name = "lblLocationID";
-            this.lblLocationID.TabIndex = 6;
-            this.lblLocationID.Visible = false;
-
-
             // 
             // lblMessage
             // 
@@ -92,34 +75,11 @@
             // 
             this.btnAddNewLoaction.Location = new System.Drawing.Point(373, 190);
             this.btnAddNewLoaction.Name = "btnAddNewLoaction";
-            this.btnAddNewLoaction.Size = new System.Drawing.Size(150, 23);
+            this.btnAddNewLoaction.Size = new System.Drawing.Size(150, 33);
             this.btnAddNewLoaction.TabIndex = 4;
             this.btnAddNewLoaction.Text = "Add Location";
             this.btnAddNewLoaction.UseVisualStyleBackColor = true;
             this.btnAddNewLoaction.Click += new System.EventHandler(this.btnAddNewLoaction_Click);
-
-            //
-            //btnUpdate
-            //
-            this.btnUpdate.Location = new System.Drawing.Point(383, 200);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(150, 23);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-
-            //
-            //btnCancel
-            //
-            this.btnCancel.Location = new System.Drawing.Point(393, 210);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(150, 23);
-            this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-
             // 
             // txtLocationAddress
             // 
@@ -153,13 +113,42 @@
             this.lblLoactionName.TabIndex = 0;
             this.lblLoactionName.Text = "Location Name";
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(373, 190);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(150, 33);
+            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(231, 190);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(121, 33);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // lblLocationID
+            // 
+            this.lblLocationID.AutoSize = true;
+            this.lblLocationID.Location = new System.Drawing.Point(228, 249);
+            this.lblLocationID.Name = "lblLocationID";
+            this.lblLocationID.Size = new System.Drawing.Size(0, 13);
+            this.lblLocationID.TabIndex = 6;
+            this.lblLocationID.Visible = false;
+            // 
             // pnlLocationGrid
             // 
             this.pnlLocationGrid.Controls.Add(this.LocationGrid);
             this.pnlLocationGrid.Controls.Add(this.btnPnlAddLocation);
-            this.pnlLocationGrid.Location = new System.Drawing.Point(30, 12);
+            this.pnlLocationGrid.Location = new System.Drawing.Point(25, 12);
             this.pnlLocationGrid.Name = "pnlLocationGrid";
-            this.pnlLocationGrid.Size = new System.Drawing.Size(1095, 447);
+            this.pnlLocationGrid.Size = new System.Drawing.Size(1100, 447);
             this.pnlLocationGrid.TabIndex = 1;
             // 
             // LocationGrid
@@ -171,7 +160,6 @@
             this.LocationGrid.Size = new System.Drawing.Size(981, 347);
             this.LocationGrid.TabIndex = 1;
             this.LocationGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LocationGrid_CellContentClick);
-            
             // 
             // btnPnlAddLocation
             // 

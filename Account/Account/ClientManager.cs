@@ -43,7 +43,7 @@ namespace Account
             return datalayer.Execute_NonQuery("sp_AddClient", CommandType.StoredProcedure, sp);
         }
 
-        public void updateClient(ClientManager client) 
+        public bool updateClient(ClientManager client) 
         {
             SqlParameter[] sp = new SqlParameter[6];
             sp[0] = new SqlParameter("@ClientID", client.ClientID);
@@ -53,7 +53,7 @@ namespace Account
             sp[4] = new SqlParameter("@ClientPhoneNo", client.ClientPhoneNo);
             sp[5] = new SqlParameter("@ClientAddress", client.ClientAddress);
 
-            datalayer.Execute_NonQuery("sp_UpdateClient", CommandType.StoredProcedure, sp);
+            return datalayer.Execute_NonQuery("sp_UpdateClient", CommandType.StoredProcedure, sp);
         }
 
         public void DeleteClient(int ClientID) 

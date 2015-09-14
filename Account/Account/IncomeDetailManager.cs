@@ -32,25 +32,26 @@ namespace Account
 
         public bool AddIncome(IncomeDetailManager newIncome) 
         {
-            SqlParameter[] sp = new SqlParameter[5];
+            SqlParameter[] sp = new SqlParameter[6];
             sp[0] = new SqlParameter("@Name", newIncome.Name);
             sp[1] = new SqlParameter("@LocationID", newIncome.LocationID);
             sp[2] = new SqlParameter("@Date", newIncome.Date);
             sp[3] = new SqlParameter("@Amount", newIncome.Amount);
             sp[4] = new SqlParameter("@Note", newIncome.Note);
+            sp[5] = new SqlParameter("@IsDeleted", false);
             return datalayer.Execute_NonQuery("sp_AddIncome", CommandType.StoredProcedure, sp);
         }
 
-        public void UpdateIncome(IncomeDetailManager Income) 
+        public bool UpdateIncome(IncomeDetailManager Income) 
         {
             SqlParameter[] sp = new SqlParameter[6];
             sp[0] = new SqlParameter("@TransactionID", Income.TransactionID);
-            sp[0] = new SqlParameter("@Name", Income.Name);
-            sp[1] = new SqlParameter("@LocationID", Income.LocationID);
-            sp[2] = new SqlParameter("@Date", DateTime.Now);
-            sp[3] = new SqlParameter("@Amount", Income.Amount);
-            sp[4] = new SqlParameter("@Note", Income.Note);
-            datalayer.Execute_NonQuery("sp_UpdateIncome", CommandType.StoredProcedure, sp);
+            sp[1] = new SqlParameter("@Name", Income.Name);
+            sp[2] = new SqlParameter("@LocationID", Income.LocationID);
+            sp[3] = new SqlParameter("@Date", DateTime.Now);
+            sp[4] = new SqlParameter("@Amount", Income.Amount);
+            sp[5] = new SqlParameter("@Note", Income.Note);
+            return datalayer.Execute_NonQuery("sp_UpdateIncome", CommandType.StoredProcedure, sp);
         }
 
 
@@ -59,5 +60,12 @@ namespace Account
             return datalayer.get_data("sp_ListIncomeDetail", CommandType.StoredProcedure, null);
         }
 
+
+        public void DeleteIncome(int TransactionID)
+        {
+            SqlParameter[] sp = new SqlParameter[1];
+            sp[0] = new SqlParameter("@TransactionID", TransactionID);
+            datalayer.Execute_NonQuery("sp_DeleteIncome", CommandType.StoredProcedure, sp);
+        }
     }
 }

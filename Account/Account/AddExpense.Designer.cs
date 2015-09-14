@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.pnlExpenseForm = new System.Windows.Forms.Panel();
+            this.lblTransactionID = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSaveExpenseDetail = new System.Windows.Forms.Button();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,8 +46,6 @@
             this.drpLocationList = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlExpenseGrid = new System.Windows.Forms.Panel();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.ExpenseGrid = new System.Windows.Forms.DataGridView();
             this.btnPnlAddExpense = new System.Windows.Forms.Button();
             this.pnlExpenseForm.SuspendLayout();
@@ -54,6 +55,7 @@
             // 
             // pnlExpenseForm
             // 
+            this.pnlExpenseForm.Controls.Add(this.lblTransactionID);
             this.pnlExpenseForm.Controls.Add(this.btnCancel);
             this.pnlExpenseForm.Controls.Add(this.btnUpdate);
             this.pnlExpenseForm.Controls.Add(this.btnSaveExpenseDetail);
@@ -73,6 +75,36 @@
             this.pnlExpenseForm.Name = "pnlExpenseForm";
             this.pnlExpenseForm.Size = new System.Drawing.Size(648, 393);
             this.pnlExpenseForm.TabIndex = 0;
+            // 
+            // lblTransactionID
+            // 
+            this.lblTransactionID.AutoSize = true;
+            this.lblTransactionID.Location = new System.Drawing.Point(417, 336);
+            this.lblTransactionID.Name = "lblTransactionID";
+            this.lblTransactionID.Size = new System.Drawing.Size(0, 13);
+            this.lblTransactionID.TabIndex = 15;
+            this.lblTransactionID.Visible = false;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(167, 336);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(89, 36);
+            this.btnCancel.TabIndex = 14;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(290, 336);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(102, 36);
+            this.btnUpdate.TabIndex = 13;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSaveExpenseDetail
             // 
@@ -188,30 +220,10 @@
             // pnlExpenseGrid
             // 
             this.pnlExpenseGrid.Controls.Add(this.ExpenseGrid);
-            this.pnlExpenseGrid.Location = new System.Drawing.Point(22, 40);
+            this.pnlExpenseGrid.Location = new System.Drawing.Point(30, 40);
             this.pnlExpenseGrid.Name = "pnlExpenseGrid";
-            this.pnlExpenseGrid.Size = new System.Drawing.Size(846, 447);
+            this.pnlExpenseGrid.Size = new System.Drawing.Size(838, 447);
             this.pnlExpenseGrid.TabIndex = 1;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(290, 336);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(102, 36);
-            this.btnUpdate.TabIndex = 13;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Visible = false;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(167, 336);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(89, 36);
-            this.btnCancel.TabIndex = 14;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // ExpenseGrid
             // 
@@ -219,8 +231,9 @@
             this.ExpenseGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ExpenseGrid.Location = new System.Drawing.Point(0, 0);
             this.ExpenseGrid.Name = "ExpenseGrid";
-            this.ExpenseGrid.Size = new System.Drawing.Size(846, 447);
+            this.ExpenseGrid.Size = new System.Drawing.Size(838, 447);
             this.ExpenseGrid.TabIndex = 0;
+            this.ExpenseGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ExpenseGrid_CellContentClick);
             // 
             // btnPnlAddExpense
             // 
@@ -271,5 +284,6 @@
         private System.Windows.Forms.Panel pnlExpenseGrid;
         private System.Windows.Forms.DataGridView ExpenseGrid;
         private System.Windows.Forms.Button btnPnlAddExpense;
+        private System.Windows.Forms.Label lblTransactionID;
     }
 }

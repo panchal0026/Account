@@ -24,7 +24,7 @@ namespace Account
 
         private void addExpenseCategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Expense_Category ex = new Expense_Category();
+            Category ex = new Category();
             ex.Show();
         }
 

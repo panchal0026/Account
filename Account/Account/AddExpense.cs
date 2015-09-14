@@ -33,8 +33,9 @@ namespace Account
             if (restult)
             {
                 MessageBox.Show("Record Inserted Succesfully.!");
-                //bindLocation();
-                
+                bindExpenseGrid();
+                pnlExpenseGrid.Visible = true;
+                pnlExpenseForm.Visible = false;
             }
             else
             {
@@ -122,45 +123,60 @@ namespace Account
                 ExpenseGrid.ColumnCount = 8;
 
                 //Add Columns
-                ExpenseGrid.Columns[0].Name = "Id";
-                ExpenseGrid.Columns[0].HeaderText = "Id";
+                ExpenseGrid.Columns[0].Name = "TransactionID";
+                ExpenseGrid.Columns[0].HeaderText = "Transaction ID";
                 ExpenseGrid.Columns[0].DataPropertyName = "TransactionID";
 
-                ExpenseGrid.Columns[1].HeaderText = "Location Name";
-                ExpenseGrid.Columns[1].Name = "LocationName";
+                ExpenseGrid.Columns[1].HeaderText = "Location ID";
+                ExpenseGrid.Columns[1].Name = "LocationID";
                 ExpenseGrid.Columns[1].DataPropertyName = "LocationID";
 
-                ExpenseGrid.Columns[2].Name = "Address";
-                ExpenseGrid.Columns[2].HeaderText = "Location Address";
+                ExpenseGrid.Columns[2].Name = "ClientID";
+                ExpenseGrid.Columns[2].HeaderText = "Client ID";
                 ExpenseGrid.Columns[2].DataPropertyName = "ClientID";
 
-                ExpenseGrid.Columns[3].Name = "Address";
-                ExpenseGrid.Columns[3].HeaderText = "Location Address";
+                ExpenseGrid.Columns[3].Name = "CategoryID";
+                ExpenseGrid.Columns[3].HeaderText = "Category ID";
                 ExpenseGrid.Columns[3].DataPropertyName = "CategoryID";
 
-                ExpenseGrid.Columns[4].Name = "Address";
-                ExpenseGrid.Columns[4].HeaderText = "Location Address";
+                ExpenseGrid.Columns[4].Name = "PayTo";
+                ExpenseGrid.Columns[4].HeaderText = "Pay To";
                 ExpenseGrid.Columns[4].DataPropertyName = "PayTo";
 
-                ExpenseGrid.Columns[5].Name = "Address";
-                ExpenseGrid.Columns[5].HeaderText = "Location Address";
+                ExpenseGrid.Columns[5].Name = "Date";
+                ExpenseGrid.Columns[5].HeaderText = "Date";
                 ExpenseGrid.Columns[5].DataPropertyName = "Date";
 
-                ExpenseGrid.Columns[6].Name = "Address";
-                ExpenseGrid.Columns[6].HeaderText = "Location Address";
+                ExpenseGrid.Columns[6].Name = "Amount";
+                ExpenseGrid.Columns[6].HeaderText = "Amount";
                 ExpenseGrid.Columns[6].DataPropertyName = "Amount";
 
-                ExpenseGrid.Columns[7].Name = "Address";
-                ExpenseGrid.Columns[7].HeaderText = "Location Address";
+                ExpenseGrid.Columns[7].Name = "Note";
+                ExpenseGrid.Columns[7].HeaderText = "Note";
                 ExpenseGrid.Columns[7].DataPropertyName = "Note";
 
 
 
                 ExpenseGrid.DataSource = ds.Tables[0];
 
-                DataGridViewButtonColumn db = new DataGridViewButtonColumn();
-                db.Text = "Delete";
-                ExpenseGrid.Columns.Insert(8, (DataGridViewColumn)db);
+                DataGridViewLinkColumn Editlink = new DataGridViewLinkColumn();
+                Editlink.UseColumnTextForLinkValue = true;
+                Editlink.HeaderText = "Edit";
+                Editlink.DataPropertyName = "lnkForEditColumn";
+                Editlink.LinkBehavior = LinkBehavior.SystemDefault;
+                Editlink.Text = "Edit";
+                ExpenseGrid.Columns.Add(Editlink);
+
+                DataGridViewLinkColumn Deletelink = new DataGridViewLinkColumn();
+                Deletelink.UseColumnTextForLinkValue = true;
+                Deletelink.HeaderText = "delete";
+                Deletelink.DataPropertyName = "lnkForDeleteColumn";
+                Deletelink.LinkBehavior = LinkBehavior.SystemDefault;
+                Deletelink.Text = "Delete";
+                ExpenseGrid.Columns.Add(Deletelink); 
+                //DataGridViewButtonColumn db = new DataGridViewButtonColumn();
+                //db.Text = "Delete";
+                //ExpenseGrid.Columns.Insert(8, (DataGridViewColumn)db);
             }
         }
 
@@ -168,6 +184,68 @@ namespace Account
         {
             pnlExpenseGrid.Visible = false;
             pnlExpenseForm.Visible = true;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            ExpenseDetailManager newExpense = new ExpenseDetailManager();
+            newExpense.TransactionID = Convert.ToInt32(lblTransactionID.Text);
+            newExpense.LocationID = Convert.ToInt32(drpLocationList.SelectedValue);
+            newExpense.ClientID = Convert.ToInt32(drpClientList.SelectedValue);
+            newExpense.CategoryID = Convert.ToInt32(drpCategoryList.SelectedValue);
+            newExpense.PayTo = txtPayTo.Text;
+            newExpense.Amount = Convert.ToInt32(txtAmount.Text);
+            newExpense.Note = txtNote.Text;
+
+            bool restult = newExpense.UpdateExpense(newExpense);
+
+            if (restult)
+            {
+                MessageBox.Show("Record Updated Succesfully.!");
+                bindExpenseGrid();
+                pnlExpenseForm.Visible = false;
+                pnlExpenseGrid.Visible = true;
+                btnUpdate.Visible = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Error.!");
+            }
+        }
+
+        private void ExpenseGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int TransactionID = 0;
+
+            if (e.ColumnIndex == 8)
+            {
+
+                drpClientList.SelectedValue = Convert.ToInt32(ExpenseGrid.Rows[e.RowIndex].Cells["ClientID"].Value.ToString());
+                drpLocationList.SelectedValue = Convert.ToInt32(ExpenseGrid.Rows[e.RowIndex].Cells["LocationID"].Value.ToString());
+                drpCategoryList.SelectedValue = Convert.ToInt32(ExpenseGrid.Rows[e.RowIndex].Cells["CategoryID"].Value.ToString());
+                lblTransactionID.Text = ExpenseGrid.Rows[e.RowIndex].Cells["TransactionID"].Value.ToString();
+                txtPayTo.Text = ExpenseGrid.Rows[e.RowIndex].Cells["PayTo"].Value.ToString();
+                txtAmount.Text = ExpenseGrid.Rows[e.RowIndex].Cells["Amount"].Value.ToString();
+                txtNote.Text = ExpenseGrid.Rows[e.RowIndex].Cells["Note"].Value.ToString();
+
+                pnlExpenseForm.Visible = true;
+                pnlExpenseGrid.Visible = false;
+                btnSaveExpenseDetail.Visible = false;
+                btnUpdate.Visible = true;
+
+            }
+            if (e.ColumnIndex == 9)
+            {
+                TransactionID = Convert.ToInt32(ExpenseGrid.Rows[e.RowIndex].Cells["TransactionID"].Value);
+
+                ExpenseDetailManager cm = new ExpenseDetailManager();
+                cm.DeleteExpense(TransactionID);
+                bindExpenseGrid();
+
+                pnlExpenseForm.Visible = false;
+                pnlExpenseGrid.Visible = true;
+            }
         }
     }
 }

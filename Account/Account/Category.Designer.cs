@@ -1,6 +1,6 @@
 ﻿namespace Account
 {
-    partial class Expense_Category
+    partial class Category
     {
         /// <summary>
         /// Required designer variable.
@@ -29,26 +29,23 @@
         private void InitializeComponent()
         {
             this.pnlExpenseCategoryForm = new System.Windows.Forms.Panel();
+            this.drpCategoryType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnAddNewExpenseCategory = new System.Windows.Forms.Button();
             this.txtExpenseCategoryDescription = new System.Windows.Forms.TextBox();
             this.lblExpenseCategoryDescription = new System.Windows.Forms.Label();
             this.txtExpenseCategoryName = new System.Windows.Forms.TextBox();
             this.lblExpenseCategoryName = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.lblExpenseID = new System.Windows.Forms.Label();
             this.pnlExpenseCategoryGrid = new System.Windows.Forms.Panel();
-            this.btnPnlExpenseCategory = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.drpCategoryType = new System.Windows.Forms.ComboBox();
             this.CategoryGrid = new System.Windows.Forms.DataGridView();
+            this.btnPnlExpenseCategory = new System.Windows.Forms.Button();
             this.pnlExpenseCategoryForm.SuspendLayout();
             this.pnlExpenseCategoryGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryGrid)).BeginInit();
             this.SuspendLayout();
-
-            this.lblExpenseID = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-
-
             // 
             // pnlExpenseCategoryForm
             // 
@@ -59,23 +56,41 @@
             this.pnlExpenseCategoryForm.Controls.Add(this.lblExpenseCategoryDescription);
             this.pnlExpenseCategoryForm.Controls.Add(this.txtExpenseCategoryName);
             this.pnlExpenseCategoryForm.Controls.Add(this.lblExpenseCategoryName);
+            this.pnlExpenseCategoryForm.Controls.Add(this.btnUpdate);
+            this.pnlExpenseCategoryForm.Controls.Add(this.btnCancel);
+            this.pnlExpenseCategoryForm.Controls.Add(this.lblExpenseID);
             this.pnlExpenseCategoryForm.Location = new System.Drawing.Point(204, 62);
             this.pnlExpenseCategoryForm.Name = "pnlExpenseCategoryForm";
             this.pnlExpenseCategoryForm.Size = new System.Drawing.Size(536, 315);
             this.pnlExpenseCategoryForm.TabIndex = 0;
             this.pnlExpenseCategoryForm.Visible = false;
-
-            this.pnlExpenseCategoryForm.Controls.Add(this.btnUpdate);
-            this.pnlExpenseCategoryForm.Controls.Add(this.btnCancel);
-
-            this.pnlExpenseCategoryForm.Controls.Add(this.lblExpenseID);
-
+            // 
+            // drpCategoryType
+            // 
+            this.drpCategoryType.FormattingEnabled = true;
+            this.drpCategoryType.Items.AddRange(new object[] {
+            "--Select one--",
+            "Expense",
+            "Income"});
+            this.drpCategoryType.Location = new System.Drawing.Point(228, 200);
+            this.drpCategoryType.Name = "drpCategoryType";
+            this.drpCategoryType.Size = new System.Drawing.Size(166, 21);
+            this.drpCategoryType.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(117, 200);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Type";
             // 
             // btnAddNewExpenseCategory
             // 
             this.btnAddNewExpenseCategory.Location = new System.Drawing.Point(228, 241);
             this.btnAddNewExpenseCategory.Name = "btnAddNewExpenseCategory";
-            this.btnAddNewExpenseCategory.Size = new System.Drawing.Size(94, 27);
+            this.btnAddNewExpenseCategory.Size = new System.Drawing.Size(126, 36);
             this.btnAddNewExpenseCategory.TabIndex = 4;
             this.btnAddNewExpenseCategory.Text = "Add Category";
             this.btnAddNewExpenseCategory.UseVisualStyleBackColor = true;
@@ -114,17 +129,53 @@
             this.lblExpenseCategoryName.TabIndex = 0;
             this.lblExpenseCategoryName.Text = "Category Name";
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(228, 241);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(126, 36);
+            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(97, 241);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(125, 36);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // lblExpenseID
+            // 
+            this.lblExpenseID.AutoSize = true;
+            this.lblExpenseID.Location = new System.Drawing.Point(236, 238);
+            this.lblExpenseID.Name = "lblExpenseID";
+            this.lblExpenseID.Size = new System.Drawing.Size(0, 13);
+            this.lblExpenseID.TabIndex = 6;
+            this.lblExpenseID.Visible = false;
+            // 
             // pnlExpenseCategoryGrid
             // 
             this.pnlExpenseCategoryGrid.Controls.Add(this.CategoryGrid);
             this.pnlExpenseCategoryGrid.Controls.Add(this.btnPnlExpenseCategory);
-            this.pnlExpenseCategoryGrid.Location = new System.Drawing.Point(45, 25);
+            this.pnlExpenseCategoryGrid.Location = new System.Drawing.Point(34, 25);
             this.pnlExpenseCategoryGrid.Name = "pnlExpenseCategoryGrid";
-            this.pnlExpenseCategoryGrid.Size = new System.Drawing.Size(913, 409);
+            this.pnlExpenseCategoryGrid.Size = new System.Drawing.Size(924, 409);
             this.pnlExpenseCategoryGrid.TabIndex = 1;
-
-
-
+            // 
+            // CategoryGrid
+            // 
+            this.CategoryGrid.BackgroundColor = System.Drawing.Color.Cornsilk;
+            this.CategoryGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CategoryGrid.Location = new System.Drawing.Point(70, 66);
+            this.CategoryGrid.Name = "CategoryGrid";
+            this.CategoryGrid.Size = new System.Drawing.Size(799, 298);
+            this.CategoryGrid.TabIndex = 1;
+            this.CategoryGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategoryGrid_CellContentClick);
             // 
             // btnPnlExpenseCategory
             // 
@@ -136,38 +187,6 @@
             this.btnPnlExpenseCategory.UseVisualStyleBackColor = true;
             this.btnPnlExpenseCategory.Click += new System.EventHandler(this.btnPnlExpenseCategory_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(117, 200);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Type";
-            // 
-            // drpCategoryType
-            // 
-            this.drpCategoryType.FormattingEnabled = true;
-            this.drpCategoryType.Items.AddRange(new object[] {
-            "--Select one--",
-            "Expense",
-            "Income"});
-            this.drpCategoryType.Location = new System.Drawing.Point(228, 200);
-            this.drpCategoryType.Name = "drpCategoryType";
-            this.drpCategoryType.Size = new System.Drawing.Size(166, 21);
-            this.drpCategoryType.TabIndex = 6;
-            // 
-            // CategoryGrid
-            // 
-            this.CategoryGrid.BackgroundColor = System.Drawing.Color.Cornsilk;
-            this.CategoryGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CategoryGrid.Location = new System.Drawing.Point(70, 66);
-            this.CategoryGrid.Name = "CategoryGrid";
-            this.CategoryGrid.Size = new System.Drawing.Size(799, 298);
-            this.CategoryGrid.TabIndex = 1;
-
-            this.CategoryGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategoryGrid_CellContentClick);
-            // 
             // Expense_Category
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,46 +194,13 @@
             this.ClientSize = new System.Drawing.Size(1003, 456);
             this.Controls.Add(this.pnlExpenseCategoryGrid);
             this.Controls.Add(this.pnlExpenseCategoryForm);
-            this.Name = "Expense_Category";
-            this.Text = "Expense_Category";
+            this.Name = "Category";
+            this.Text = "Category";
             this.pnlExpenseCategoryForm.ResumeLayout(false);
             this.pnlExpenseCategoryForm.PerformLayout();
             this.pnlExpenseCategoryGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CategoryGrid)).EndInit();
             this.ResumeLayout(false);
-
-
-            //
-            //hdnLocationID
-            //
-
-            this.lblExpenseID.AutoSize = true;
-            this.lblExpenseID.Location = new System.Drawing.Point(236, 238);
-            this.lblExpenseID.Name = "lblExpenseID";
-            this.lblExpenseID.TabIndex = 6;
-            this.lblExpenseID.Visible = false;
-
-            //
-            //btnUpdate
-            //
-            this.btnUpdate.Location = new System.Drawing.Point(383, 200);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(150, 23);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-
-            //
-            //btnCancel
-            //
-            this.btnCancel.Location = new System.Drawing.Point(393, 210);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(150, 23);
-            this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 
         }
 

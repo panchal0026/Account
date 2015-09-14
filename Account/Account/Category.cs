@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Account
 {
-    public partial class Expense_Category : Form
+    public partial class Category : Form
     {
-        public Expense_Category()
+        public Category()
         {
             InitializeComponent();
             bindCategory();

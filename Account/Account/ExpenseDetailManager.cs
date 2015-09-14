@@ -36,7 +36,7 @@ namespace Account
 
         public bool AddExpense(ExpenseDetailManager newExpense) 
         {
-            SqlParameter[] sp = new SqlParameter[7];
+            SqlParameter[] sp = new SqlParameter[8];
             sp[0] = new SqlParameter("@LocationID", newExpense.LocationID);
             sp[1] = new SqlParameter("@ClientID", newExpense.ClientID);
             sp[2] = new SqlParameter("@CategoryID", newExpense.CategoryID);
@@ -44,11 +44,11 @@ namespace Account
             sp[4] = new SqlParameter("@Date", DateTime.Now);
             sp[5] = new SqlParameter("@Amount", newExpense.Amount);
             sp[6] = new SqlParameter("@Note", newExpense.Note);
-
+            sp[7] = new SqlParameter("@IsDeleted", false);
             return datalayer.Execute_NonQuery("sp_AddExpense", CommandType.StoredProcedure, sp);
         }
 
-        public void UpdateExpense(ExpenseDetailManager expense)
+        public bool UpdateExpense(ExpenseDetailManager expense)
         {
             SqlParameter[] sp = new SqlParameter[7];
             sp[0] = new SqlParameter("@TransactionID", expense.TransactionID);
@@ -58,7 +58,7 @@ namespace Account
             sp[4] = new SqlParameter("@Date", DateTime.Now);
             sp[5] = new SqlParameter("@Amount", expense.Amount);
             sp[6] = new SqlParameter("@Note", expense.Note);
-            datalayer.Execute_NonQuery("sp_UpdateExpense", CommandType.StoredProcedure, sp);
+            return datalayer.Execute_NonQuery("sp_UpdateExpense", CommandType.StoredProcedure, sp);
         }
 
         public DataSet ListExpenseDetails()
@@ -66,5 +66,11 @@ namespace Account
             return datalayer.get_data("sp_ListExpenseDetail", CommandType.StoredProcedure, null);
         }
 
+        public void DeleteExpense(int TransactionID)
+        {
+            SqlParameter[] sp = new SqlParameter[1];
+            sp[0] = new SqlParameter("@TransactionID", TransactionID);
+            datalayer.Execute_NonQuery("sp_DeleteExpense", CommandType.StoredProcedure, sp);
+        }
     }
 }

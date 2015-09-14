@@ -35,7 +35,6 @@
             this.addLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addExpenseCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addIncomeCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,8 +95,7 @@
             // categoryToolStripMenuItem
             // 
             this.categoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addExpenseCategoryToolStripMenuItem,
-            this.addIncomeCategoryToolStripMenuItem});
+            this.addExpenseCategoryToolStripMenuItem});
             this.categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
             this.categoryToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.categoryToolStripMenuItem.Text = "Category";
@@ -105,15 +103,9 @@
             // addExpenseCategoryToolStripMenuItem
             // 
             this.addExpenseCategoryToolStripMenuItem.Name = "addExpenseCategoryToolStripMenuItem";
-            this.addExpenseCategoryToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.addExpenseCategoryToolStripMenuItem.Text = "Add Expense Category";
+            this.addExpenseCategoryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addExpenseCategoryToolStripMenuItem.Text = "Add Category";
             this.addExpenseCategoryToolStripMenuItem.Click += new System.EventHandler(this.addExpenseCategoryToolStripMenuItem_Click);
-            // 
-            // addIncomeCategoryToolStripMenuItem
-            // 
-            this.addIncomeCategoryToolStripMenuItem.Name = "addIncomeCategoryToolStripMenuItem";
-            this.addIncomeCategoryToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.addIncomeCategoryToolStripMenuItem.Text = "Add Income Category";
             // 
             // clientsToolStripMenuItem
             // 
@@ -126,7 +118,7 @@
             // addClientsToolStripMenuItem
             // 
             this.addClientsToolStripMenuItem.Name = "addClientsToolStripMenuItem";
-            this.addClientsToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.addClientsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addClientsToolStripMenuItem.Text = "Add &Clients";
             this.addClientsToolStripMenuItem.Click += new System.EventHandler(this.addClientsToolStripMenuItem_Click);
             // 
@@ -143,21 +135,21 @@
             // myAccountToolStripMenuItem
             // 
             this.myAccountToolStripMenuItem.Name = "myAccountToolStripMenuItem";
-            this.myAccountToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.myAccountToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.myAccountToolStripMenuItem.Text = "My &Account";
             this.myAccountToolStripMenuItem.Click += new System.EventHandler(this.myAccountToolStripMenuItem_Click);
             // 
             // addExpenseToolStripMenuItem
             // 
             this.addExpenseToolStripMenuItem.Name = "addExpenseToolStripMenuItem";
-            this.addExpenseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addExpenseToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.addExpenseToolStripMenuItem.Text = "Add &Expense";
             this.addExpenseToolStripMenuItem.Click += new System.EventHandler(this.addExpenseToolStripMenuItem_Click);
             // 
             // addIncomeToolStripMenuItem
             // 
             this.addIncomeToolStripMenuItem.Name = "addIncomeToolStripMenuItem";
-            this.addIncomeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addIncomeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.addIncomeToolStripMenuItem.Text = "Add &Income";
             this.addIncomeToolStripMenuItem.Click += new System.EventHandler(this.addIncomeToolStripMenuItem_Click);
             // 
@@ -222,7 +214,6 @@
         private System.Windows.Forms.ToolStripMenuItem addLocationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addExpenseCategoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addIncomeCategoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addClientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
