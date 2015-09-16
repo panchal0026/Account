@@ -41,9 +41,13 @@
             this.pnlLocationGrid = new System.Windows.Forms.Panel();
             this.LocationGrid = new System.Windows.Forms.DataGridView();
             this.btnPnlAddLocation = new System.Windows.Forms.Button();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pnlLocationForm.SuspendLayout();
             this.pnlLocationGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LocationGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlLocationForm
@@ -144,6 +148,7 @@
             // 
             // pnlLocationGrid
             // 
+            this.pnlLocationGrid.Controls.Add(this.gridControl1);
             this.pnlLocationGrid.Controls.Add(this.LocationGrid);
             this.pnlLocationGrid.Controls.Add(this.btnPnlAddLocation);
             this.pnlLocationGrid.Location = new System.Drawing.Point(25, 12);
@@ -171,6 +176,22 @@
             this.btnPnlAddLocation.UseVisualStyleBackColor = true;
             this.btnPnlAddLocation.Click += new System.EventHandler(this.btnPnlAddLocation_Click);
             // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(27, 36);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(400, 200);
+            this.gridControl1.TabIndex = 2;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowFooter = true;
+            // 
             // Locations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,6 +205,8 @@
             this.pnlLocationForm.PerformLayout();
             this.pnlLocationGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LocationGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -205,5 +228,7 @@
         private System.Windows.Forms.Label lblLocationID;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnCancel;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

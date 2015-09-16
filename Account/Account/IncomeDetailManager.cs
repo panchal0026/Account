@@ -48,7 +48,7 @@ namespace Account
             sp[0] = new SqlParameter("@TransactionID", Income.TransactionID);
             sp[1] = new SqlParameter("@Name", Income.Name);
             sp[2] = new SqlParameter("@LocationID", Income.LocationID);
-            sp[3] = new SqlParameter("@Date", DateTime.Now);
+            sp[3] = new SqlParameter("@Date",Income.Date);
             sp[4] = new SqlParameter("@Amount", Income.Amount);
             sp[5] = new SqlParameter("@Note", Income.Note);
             return datalayer.Execute_NonQuery("sp_UpdateIncome", CommandType.StoredProcedure, sp);

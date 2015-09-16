@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlAddIncomeForm = new System.Windows.Forms.Panel();
+            this.lblTransactionID = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAddNewIncome = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -43,7 +44,8 @@
             this.PnlIncomeGrid = new System.Windows.Forms.Panel();
             this.IncomeDetailGrid = new System.Windows.Forms.DataGridView();
             this.btnPnlAddNewIncome = new System.Windows.Forms.Button();
-            this.lblTransactionID = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateTime = new System.Windows.Forms.DateTimePicker();
             this.pnlAddIncomeForm.SuspendLayout();
             this.PnlIncomeGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IncomeDetailGrid)).BeginInit();
@@ -51,6 +53,8 @@
             // 
             // pnlAddIncomeForm
             // 
+            this.pnlAddIncomeForm.Controls.Add(this.dateTime);
+            this.pnlAddIncomeForm.Controls.Add(this.label5);
             this.pnlAddIncomeForm.Controls.Add(this.lblTransactionID);
             this.pnlAddIncomeForm.Controls.Add(this.btnCancel);
             this.pnlAddIncomeForm.Controls.Add(this.btnAddNewIncome);
@@ -68,9 +72,18 @@
             this.pnlAddIncomeForm.Size = new System.Drawing.Size(555, 381);
             this.pnlAddIncomeForm.TabIndex = 0;
             // 
+            // lblTransactionID
+            // 
+            this.lblTransactionID.AutoSize = true;
+            this.lblTransactionID.Location = new System.Drawing.Point(106, 366);
+            this.lblTransactionID.Name = "lblTransactionID";
+            this.lblTransactionID.Size = new System.Drawing.Size(0, 13);
+            this.lblTransactionID.TabIndex = 11;
+            this.lblTransactionID.Visible = false;
+            // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(106, 304);
+            this.btnCancel.Location = new System.Drawing.Point(106, 329);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(94, 30);
             this.btnCancel.TabIndex = 10;
@@ -80,7 +93,7 @@
             // 
             // btnAddNewIncome
             // 
-            this.btnAddNewIncome.Location = new System.Drawing.Point(224, 304);
+            this.btnAddNewIncome.Location = new System.Drawing.Point(224, 329);
             this.btnAddNewIncome.Name = "btnAddNewIncome";
             this.btnAddNewIncome.Size = new System.Drawing.Size(94, 30);
             this.btnAddNewIncome.TabIndex = 9;
@@ -90,7 +103,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(224, 304);
+            this.btnUpdate.Location = new System.Drawing.Point(224, 329);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 30);
             this.btnUpdate.TabIndex = 8;
@@ -101,7 +114,7 @@
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(224, 180);
+            this.txtNote.Location = new System.Drawing.Point(224, 216);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(206, 94);
@@ -110,7 +123,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(103, 188);
+            this.label4.Location = new System.Drawing.Point(103, 224);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 6;
@@ -168,9 +181,9 @@
             // PnlIncomeGrid
             // 
             this.PnlIncomeGrid.Controls.Add(this.IncomeDetailGrid);
-            this.PnlIncomeGrid.Location = new System.Drawing.Point(26, 53);
+            this.PnlIncomeGrid.Location = new System.Drawing.Point(31, 53);
             this.PnlIncomeGrid.Name = "PnlIncomeGrid";
-            this.PnlIncomeGrid.Size = new System.Drawing.Size(922, 426);
+            this.PnlIncomeGrid.Size = new System.Drawing.Size(917, 426);
             this.PnlIncomeGrid.TabIndex = 1;
             // 
             // IncomeDetailGrid
@@ -179,7 +192,7 @@
             this.IncomeDetailGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.IncomeDetailGrid.Location = new System.Drawing.Point(0, 0);
             this.IncomeDetailGrid.Name = "IncomeDetailGrid";
-            this.IncomeDetailGrid.Size = new System.Drawing.Size(922, 426);
+            this.IncomeDetailGrid.Size = new System.Drawing.Size(917, 426);
             this.IncomeDetailGrid.TabIndex = 0;
             this.IncomeDetailGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.IncomeDetailGrid_CellContentClick);
             // 
@@ -193,14 +206,21 @@
             this.btnPnlAddNewIncome.UseVisualStyleBackColor = true;
             this.btnPnlAddNewIncome.Click += new System.EventHandler(this.btnPnlAddNewIncome_Click);
             // 
-            // lblTransactionID
+            // label5
             // 
-            this.lblTransactionID.AutoSize = true;
-            this.lblTransactionID.Location = new System.Drawing.Point(106, 341);
-            this.lblTransactionID.Name = "lblTransactionID";
-            this.lblTransactionID.Size = new System.Drawing.Size(0, 13);
-            this.lblTransactionID.TabIndex = 11;
-            this.lblTransactionID.Visible = false;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(106, 183);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Date";
+            // 
+            // dateTime
+            // 
+            this.dateTime.Location = new System.Drawing.Point(224, 175);
+            this.dateTime.Name = "dateTime";
+            this.dateTime.Size = new System.Drawing.Size(200, 20);
+            this.dateTime.TabIndex = 13;
             // 
             // AddIncome
             // 
@@ -238,5 +258,7 @@
         private System.Windows.Forms.DataGridView IncomeDetailGrid;
         private System.Windows.Forms.Button btnPnlAddNewIncome;
         private System.Windows.Forms.Label lblTransactionID;
+        private System.Windows.Forms.DateTimePicker dateTime;
+        private System.Windows.Forms.Label label5;
     }
 }

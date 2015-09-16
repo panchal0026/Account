@@ -24,7 +24,7 @@ namespace Account
             income.TransactionID = Convert.ToInt32(lblTransactionID.Text);
             income.LocationID = Convert.ToInt32(drpLocationList.SelectedValue);
             income.Name = txtName.Text;
-            income.Date = DateTime.Now;
+            income.Date = Convert.ToDateTime(dateTime.Text);
             income.Amount = Convert.ToInt32(txtAmount.Text);
             income.Note = txtNote.Text;
 
@@ -49,7 +49,7 @@ namespace Account
             IncomeDetailManager income = new IncomeDetailManager();
             income.LocationID = Convert.ToInt32(drpLocationList.SelectedValue);
             income.Name = txtName.Text;
-            income.Date = DateTime.Now;
+            income.Date = Convert.ToDateTime(dateTime.Text);
             income.Amount = Convert.ToInt32(txtAmount.Text);
             income.Note = txtNote.Text;
             bool res = income.AddIncome(income);
@@ -170,6 +170,7 @@ namespace Account
                 drpLocationList.SelectedValue = Convert.ToInt32(IncomeDetailGrid.Rows[e.RowIndex].Cells["LocationID"].Value.ToString());
                 lblTransactionID.Text = IncomeDetailGrid.Rows[e.RowIndex].Cells["TransactionID"].Value.ToString();
                 txtAmount.Text = IncomeDetailGrid.Rows[e.RowIndex].Cells["Amount"].Value.ToString();
+                dateTime.Text = IncomeDetailGrid.Rows[e.RowIndex].Cells["Date"].Value.ToString();
                 txtNote.Text = IncomeDetailGrid.Rows[e.RowIndex].Cells["Note"].Value.ToString();
                 
                 pnlAddIncomeForm.Visible = true;

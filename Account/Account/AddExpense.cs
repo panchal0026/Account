@@ -26,6 +26,7 @@ namespace Account
             newExpense.CategoryID = Convert.ToInt32(drpCategoryList.SelectedValue);
             newExpense.PayTo = txtPayTo.Text;
             newExpense.Amount = Convert.ToInt32(txtAmount.Text);
+            newExpense.Date = Convert.ToDateTime(dateTime.Text);
             newExpense.Note = txtNote.Text;
 
             bool restult = newExpense.AddExpense(newExpense);
@@ -194,6 +195,7 @@ namespace Account
             newExpense.ClientID = Convert.ToInt32(drpClientList.SelectedValue);
             newExpense.CategoryID = Convert.ToInt32(drpCategoryList.SelectedValue);
             newExpense.PayTo = txtPayTo.Text;
+            newExpense.Date = Convert.ToDateTime(dateTime.Text);
             newExpense.Amount = Convert.ToInt32(txtAmount.Text);
             newExpense.Note = txtNote.Text;
 
@@ -228,7 +230,7 @@ namespace Account
                 txtPayTo.Text = ExpenseGrid.Rows[e.RowIndex].Cells["PayTo"].Value.ToString();
                 txtAmount.Text = ExpenseGrid.Rows[e.RowIndex].Cells["Amount"].Value.ToString();
                 txtNote.Text = ExpenseGrid.Rows[e.RowIndex].Cells["Note"].Value.ToString();
-
+                dateTime.Text = ExpenseGrid.Rows[e.RowIndex].Cells["Date"].Value.ToString();
                 pnlExpenseForm.Visible = true;
                 pnlExpenseGrid.Visible = false;
                 btnSaveExpenseDetail.Visible = false;

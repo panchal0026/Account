@@ -15,7 +15,7 @@ namespace Account
         public int ClientID { get; set; }
         public int CategoryID { get; set; }
         public string PayTo { get; set; }
-        
+        public DateTime Date { get; set; }
         public long Amount { get; set; }
         public string Note { get; set; }
 
@@ -41,7 +41,7 @@ namespace Account
             sp[1] = new SqlParameter("@ClientID", newExpense.ClientID);
             sp[2] = new SqlParameter("@CategoryID", newExpense.CategoryID);
             sp[3] = new SqlParameter("@payTo", newExpense.PayTo);
-            sp[4] = new SqlParameter("@Date", DateTime.Now);
+            sp[4] = new SqlParameter("@Date", newExpense.Date);
             sp[5] = new SqlParameter("@Amount", newExpense.Amount);
             sp[6] = new SqlParameter("@Note", newExpense.Note);
             sp[7] = new SqlParameter("@IsDeleted", false);
@@ -55,7 +55,7 @@ namespace Account
             sp[1] = new SqlParameter("@ClientID", expense.ClientID);
             sp[2] = new SqlParameter("@CategoryID", expense.CategoryID);
             sp[3] = new SqlParameter("@payTo", expense.PayTo);
-            sp[4] = new SqlParameter("@Date", DateTime.Now);
+            sp[4] = new SqlParameter("@Date", expense.Date);
             sp[5] = new SqlParameter("@Amount", expense.Amount);
             sp[6] = new SqlParameter("@Note", expense.Note);
             return datalayer.Execute_NonQuery("sp_UpdateExpense", CommandType.StoredProcedure, sp);

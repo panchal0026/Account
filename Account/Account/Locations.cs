@@ -172,8 +172,6 @@ namespace Account
                 //LocationGrid.Columns.Insert(3, (DataGridViewColumn)db);                
             }
         }
-
-        
         
 
         #endregion
