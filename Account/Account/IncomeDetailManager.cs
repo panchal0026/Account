@@ -67,5 +67,10 @@ namespace Account
             sp[0] = new SqlParameter("@TransactionID", TransactionID);
             datalayer.Execute_NonQuery("sp_DeleteIncome", CommandType.StoredProcedure, sp);
         }
+
+        public DataSet getIncomeChartData(int LocationID,DateTime? fromDate,DateTime? toDate) 
+        {
+           return datalayer.get_data("sp_getIncomeChartData",CommandType.StoredProcedure,null);
+        }
     }
 }

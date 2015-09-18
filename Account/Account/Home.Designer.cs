@@ -103,7 +103,7 @@
             // addExpenseCategoryToolStripMenuItem
             // 
             this.addExpenseCategoryToolStripMenuItem.Name = "addExpenseCategoryToolStripMenuItem";
-            this.addExpenseCategoryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addExpenseCategoryToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.addExpenseCategoryToolStripMenuItem.Text = "Add Category";
             this.addExpenseCategoryToolStripMenuItem.Click += new System.EventHandler(this.addExpenseCategoryToolStripMenuItem_Click);
             // 
@@ -118,7 +118,7 @@
             // addClientsToolStripMenuItem
             // 
             this.addClientsToolStripMenuItem.Name = "addClientsToolStripMenuItem";
-            this.addClientsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addClientsToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.addClientsToolStripMenuItem.Text = "Add &Clients";
             this.addClientsToolStripMenuItem.Click += new System.EventHandler(this.addClientsToolStripMenuItem_Click);
             // 
@@ -158,6 +158,7 @@
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
+            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

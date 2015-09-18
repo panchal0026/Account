@@ -51,5 +51,11 @@ namespace Account
             AddIncome income = new AddIncome();
             income.Show();
         }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reports r = new Reports();
+            r.Show();
+        }
     }
 }
